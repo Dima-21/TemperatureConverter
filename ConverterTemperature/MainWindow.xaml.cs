@@ -24,5 +24,23 @@ namespace ConverterTemperature
         {
             InitializeComponent();
         }
+
+
+        private void cel_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (cel.Text != "")
+                far.Text = $"{(Double.Parse(cel.Text) * ((double)9 / 5) + 32)}";
+            else
+                far.Text = "";
+        }
+
+        private void far_KeyUp(object sender, KeyEventArgs e)
+        {
+            var tmp = Double.Parse(cel.Text) - (double)32 * ((double)9 / 5);
+            if (far.Text != "")
+                cel.Text = $"{tmp}";
+            else
+                cel.Text = "";
+        }
     }
 }
