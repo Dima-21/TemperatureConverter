@@ -36,11 +36,10 @@ namespace ConverterTemperature
 
         private void far_KeyUp(object sender, KeyEventArgs e)
         {
-            var tmp = Double.Parse(cel.Text) - (double)32 * ((double)9 / 5);
             if (far.Text != "")
-                cel.Text = $"{tmp}";
+                cel.Text = $"{(Double.Parse(far.Text) - (double)32) / ((double)9 / 5)}";
             else
                 cel.Text = "";
         }
-    }
+}
 }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ConverterTemperature"
         mc:Ignorable="d"
         Title="Конвертер температур" Height="600" Width="400"
-        ResizeMode="CanMinimize">
+        MinWidth="400" MaxWidth="700">
     <Window.Resources>
         <Style x:Key="styleApp">
             <Setter Property="Control.Width" Value="100"/>
@@ -16,24 +16,32 @@
         <Style TargetType="TextBox" BasedOn="{StaticResource styleApp}"/>
         <Style TargetType="Image" BasedOn="{StaticResource styleApp}"/>
     </Window.Resources>
-    <Grid >
-        <Grid.Background>
-            <ImageBrush ImageSource="Images/Background.jpg"/>
-        </Grid.Background>
-        <Grid.ColumnDefinitions >
-            <ColumnDefinition Width="0.7*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions >
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Image Grid.Row="1" Grid.Column="0" Source="Images/C.png" Margin="15, 5"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="45"/>
-        <TextBox x:Name="cel" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" KeyUp="cel_KeyUp"/>
-        <Image Grid.Row="2" Grid.ColumnSpan="2" Source="Images/Convert.png" Margin="15, 5"  HorizontalAlignment="Center" Width="80"/>
-        <Image Grid.Row="3" Grid.Column="0" Source="Images/F.png" Margin="15, 5"  HorizontalAlignment="Right" VerticalAlignment="Top" Width="45"/>
-        <TextBox x:Name="far" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" KeyUp="far_KeyUp"/>
-    </Grid>
+    <DockPanel Background="Beige">
+        <StackPanel>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal " Margin="15 10 1 5">
+                <Image Source="Images/logo1.png"  Width="100"/>
+                <Image Source="Images/logo2.png"  Margin="15 0 0 0"  Width="250"/>
+            </StackPanel>
+            <DockPanel>
+                <Image Source="Images/line.png"  Margin="5 0 5 0" Width="auto" />
+            </DockPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Image Grid.Column="0" Grid.Row="0" Source="Images/C.png" HorizontalAlignment="Right" Margin="0 0 5 0" Width="50"/>
+                <TextBox x:Name="cel"  Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" KeyUp="cel_KeyUp"/>
+                <Image Grid.Row="1" Grid.ColumnSpan="2" Source="Images/Convert.png" Margin="15, 5"  HorizontalAlignment="Center" Width="80"/>
+                <Image Grid.Column="0" Grid.Row="2" Source="Images/F.png" HorizontalAlignment="Right"  Margin="0 0 5 0"  Width="50"/>
+                <TextBox x:Name="far" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" KeyUp="far_KeyUp"/>
+            </Grid>
+        </StackPanel>
+
+    </DockPanel>
 </Window>
